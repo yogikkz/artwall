@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 460 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-379.416,-300.484)">
+        <g>
+            <g transform="matrix(0.68641,0,0,1.11111,241.959,-219.683)">
+                <rect x="507.433" y="468.151" width="363" height="72"/>
+            </g>
+            <g transform="matrix(6.8018,0,0,6.8018,-2215.24,-2972.28)">
+                <text x="413.412px" y="491.291px" style="font-family:'Poppins-BlackItalic', 'Poppins';font-weight:900;font-style:italic;font-size:12px;fill:white;">WALL</text>
+            </g>
+            <g transform="matrix(6.8018,0,0,6.8018,-2408.65,-2972.28)">
+                <text x="413.412px" y="491.291px" style="font-family:'Poppins-BlackItalic', 'Poppins';font-weight:900;font-style:italic;font-size:12px;">ART</text>
+            </g>
+            <g transform="matrix(0.531542,0,0,1.00063,170.717,66.854)">
+                <rect x="392.6" y="233.484" width="15.051" height="79.95"/>
+            </g>
+        </g>
+    </g>
+</svg>
