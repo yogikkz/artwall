@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,900;1,900&family=Source+Sans+Pro:wght@300&display=swap');
 
 @import 'colors';
 @import 'mixins';
@@ -30,6 +30,9 @@ h2 {
 
 p {
 	font-size: 1.25em;
+	@include media(tablet) {
+		font-size: 1em;
+	}
 }
 
 .container {
@@ -58,6 +61,21 @@ p {
 		text-decoration: none;
 		img {
 			height: 36px;
+		}
+	}
+}
+
+nav {
+	display: none;
+	@include media(tablet) {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		padding-top: 92px;
+		a {
+			font-size: 1.125em;
+			text-transform: uppercase;
+			font-weight: 300;
 		}
 	}
 }
@@ -138,16 +156,22 @@ p {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: calc(100vw - 20px);
-	height: calc(100vh - 92px);
-	margin: 82px 10px 10px;
-	background: url('../images/stock/AdobeStock_269870413_Preview.jpeg') no-repeat center;
-	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	border: 10px solid white;
+	overflow: hidden;
 	z-index: -1;
+	img {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 100%;
+	}
 	h1 {
 		position: absolute;
 		left: 0;
-		bottom: 20%;
+		bottom: 10%;
 		font-size: 3em;
 		text-transform: uppercase;
 		font-style: italic;
@@ -155,21 +179,50 @@ p {
 		color: white;
 		text-align: center;
 	}
+	@include media(tablet) {
+		width: 100%;
+		height: 500px;
+		left: 50%;
+		border: none;
+		margin-top: 139px;
+		transform: translateX(-50%);
+		background-image: linear-gradient(white 70%, $grey 30%);
+	}
 }
 
 .about {
 	background-color: $grey;
 	padding-top: 80px;
 	padding-bottom: 80px;
-	text-align: center;
 	margin-top: 100vh;
-	h2 {
-		text-transform: uppercase;
-		padding-bottom: 10px;
-		border-bottom: 1px solid $primary;
+	.container {
+		text-align: center;
+		h2 {
+			text-transform: uppercase;
+			padding-bottom: 20px;
+			border-bottom: 1px solid $primary;
+		}
+		p {
+			padding-top: 20px;
+		}
+		@include media(tablet) {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			h2 {
+				border-bottom: none;
+				padding-right: 80px;
+				padding-left: 80px;
+			}
+			p {
+				border-left: 1px solid $primary;
+				padding-left: 80px;
+				text-align: left;
+			}
+		}
 	}
-	p {
-		padding-top: 10px;
+	@include media(tablet) {
+		margin-top: 500px;
 	}
 }
 
@@ -206,12 +259,18 @@ p {
 
 .cards {
 	background-color: #fff;
-	padding: 40px;
+	padding: 40px 0;
+	@include media(tablet) {
+		padding: 80px 0;
+	}
 	.container {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
+		@include media(tablet) {
+			flex-direction: row;
+		}
 		.card {
 			display: flex;
 			flex-direction: column;
@@ -236,8 +295,14 @@ footer {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		@include media(tablet) {
+			flex-direction: row;
+			align-items: flex-start;
+			text-align: left;
+		}
 		.address {
-			flex-basis: 2;
 			img {
 				width: 75%;
 				opacity: 0.4;
@@ -251,6 +316,7 @@ footer {
 			}
 		}
 		.follow__us {
+			padding: 20px 0;
 			p {
 				font-weight: 600;
 				padding-bottom: 10px;
@@ -261,6 +327,7 @@ footer {
 			}
 		}
 		> ul {
+			padding: 20px 0;
 			li {
 				list-style: none;
 				padding: 3px 0;
@@ -272,5 +339,8 @@ footer {
 	background-color: #fff;
 	color: $primary;
 	text-align: center;
-	padding: 5px 0;
+	padding: 5px 0 75px 0;
+	@include media(tablet) {
+		padding: 5px 0;
+	}
 }
