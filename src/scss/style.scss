@@ -63,6 +63,10 @@ p {
 			height: 36px;
 		}
 	}
+	@include media(tablet) {
+		justify-content: space-between;
+		padding: 0 80px;
+	}
 }
 
 nav {
@@ -84,8 +88,8 @@ nav {
 	position: fixed;
 	z-index: 2;
 	left: 50%;
-	transform: translateX(-50%);
 	bottom: 0;
+	transform: translateX(-50%);
 	background-color: $primary;
 	width: 80px;
 	height: 68px;
@@ -98,6 +102,21 @@ nav {
 		display: none;
 		&.active {
 			display: inherit;
+		}
+		@include media(tablet) {
+			padding: 18;
+		}
+	}
+	@include media(tablet) {
+		top: 0;
+		left: 0;
+		transform: translate(0);
+		background-color: transparent;
+		color: $primary;
+		width: auto;
+		height: auto;
+		&:hover {
+			color: $aHover;
 		}
 	}
 }
@@ -112,9 +131,16 @@ nav {
 	transition: all 1s cubic-bezier(0.4, 0.19, 0.07, 1);
 	background-color: #fff;
 	z-index: 1;
+	@include media(tablet) {
+		width: 350px;
+		transform: translateY(0) translateX(-100%) translateZ(0);
+	}
 	&.open {
 		transform: translateY(0%) translateZ(0);
 		transition: all 1s 0.3s cubic-bezier(0.4, 0.19, 0.07, 1);
+		@include media(tablet) {
+			transform: translateY(0) translateX(0) translateZ(0);
+		}
 	}
 	> ul {
 		padding: 15px;
@@ -126,9 +152,26 @@ nav {
 				font-size: 1.5em;
 				font-weight: 600;
 				align-items: center;
+				cursor: pointer;
 				i {
 					font-size: 1em;
 					padding-right: 0.625em;
+				}
+			}
+			&.nav-contact {
+				text-align: center;
+				border-top: 1px solid $grey;
+				margin-top: 40px;
+				h2 {
+					display: block;
+					padding: 30px;
+					cursor: auto;
+				}
+				h3 {
+					padding-top: 20px;
+					i {
+						padding-right: 10px;
+					}
 				}
 			}
 			ul {
@@ -156,37 +199,49 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
-	height: 100vh;
-	border: 10px solid white;
-	overflow: hidden;
 	z-index: -1;
-	img {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		height: 100%;
+	.container {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		border: 10px solid white;
+		overflow: hidden;
+		img {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 100%;
+		}
+		h1 {
+			position: absolute;
+			left: 0;
+			bottom: 10%;
+			font-size: 3em;
+			text-transform: uppercase;
+			font-style: italic;
+			font-weight: 900;
+			color: white;
+			text-align: center;
+		}
 	}
-	h1 {
-		position: absolute;
-		left: 0;
-		bottom: 10%;
-		font-size: 3em;
-		text-transform: uppercase;
-		font-style: italic;
-		font-weight: 900;
-		color: white;
-		text-align: center;
-	}
+
 	@include media(tablet) {
 		width: 100%;
 		height: 500px;
-		left: 50%;
 		border: none;
 		margin-top: 139px;
-		transform: translateX(-50%);
 		background-image: linear-gradient(white 70%, $grey 30%);
+		.container {
+			height: 500px;
+			border: none;
+			h1 {
+				width: 30%;
+				left: 100px;
+				bottom: 50%;
+				transform: translateY(50%);
+				text-align: left;
+			}
+		}
 	}
 }
 
@@ -231,14 +286,82 @@ nav {
 	padding: 80px 0;
 	.container {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(307px, 1fr));
-		gap: 17px;
-		padding: 100px 17px 17px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-auto-rows: 300px;
+		grid-gap: 15px;
 		position: relative;
-		img {
-			width: 100%;
+		@include media(tablet) {
+			grid-template-columns: repeat(3, 1fr);
+			.w-1 {
+				grid-column: span 1;
+			}
+			.w-2 {
+				grid-column: span 2;
+			}
+
+			.h-2 {
+				grid-row: span 2;
+			}
 		}
 	}
+	.gallery-item {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		.image {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 50% 50%;
+				cursor: pointer;
+				transition: 0.5s ease-in-out;
+			}
+		}
+		.text {
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 2em;
+			pointer-events: none;
+			width: 100%;
+			text-align: center;
+			z-index: 2;
+			transition: 0.3s ease-in-out;
+			backdrop-filter: blur(5px) saturate(1.8);
+		}
+		&:hover {
+			.image {
+				img {
+					transform: scale(1.5);
+				}
+			}
+			.text {
+				opacity: 1;
+				padding: 1em;
+				animation: move-down 0.3s linear;
+			}
+		}
+	}
+
+	@keyframes move-down {
+		0% {
+			top: 10%;
+		}
+		50% {
+			top: 30%;
+		}
+		100% {
+			top: 50%;
+		}
+	}
+
 	h2 {
 		position: absolute;
 		width: 100%;
