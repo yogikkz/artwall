@@ -19,7 +19,7 @@ body {
 a {
 	text-decoration: none;
 	color: $primary;
-	transition: .3s linear;
+	transition: 0.3s linear;
 	&:hover {
 		color: $aHover;
 	}
@@ -72,26 +72,28 @@ p {
 
 .search {
 	background-color: $grey;
-	position: fixed;	
+	position: fixed;
 	top: 72px;
 	width: 100%;
-	padding: 20px;	
+	padding: 20px;
 	z-index: 2;
 	border-bottom: 4px solid #fff;
 	transform: scale(0);
-	transition: .3s linear;
+	opacity: 0;
+	transition: 0.2s linear;
 	&.active {
 		transform: scale(1);
+		opacity: 1;
 	}
 	.s-bar {
-		margin: 0 auto;	
-		width: 50%;	
+		margin: 0 auto;
+		width: 50%;
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
 		.s-input {
 			flex-basis: 100%;
-			background: transparent;			
+			background: transparent;
 			border-top: 0;
 			border-left: 0;
 			border-right: 0;
@@ -205,6 +207,10 @@ nav {
 				align-items: center;
 				padding: 5px 0;
 				cursor: pointer;
+				@include media(tablet) {
+					font-size: 1.125em;
+					text-transform: uppercase;
+				}
 				i {
 					pointer-events: none;
 					font-size: 1em;
@@ -257,9 +263,15 @@ nav {
 			display: block;
 			padding: 30px;
 			cursor: auto;
+			@include media(tablet) {
+				font-size: 1.125em;
+				text-transform: uppercase;
+				font-weight: 600;
+			}
 		}
 		h3 {
 			padding-top: 20px;
+			font-weight: 600;
 			i {
 				padding-right: 10px;
 			}
@@ -535,5 +547,34 @@ footer {
 	padding: 5px 0 75px 0;
 	@include media(tablet) {
 		padding: 5px 0;
+	}
+}
+
+.cookies {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	font-size: 0.75em;
+	font-weight: 400;
+	display: none;
+	color: white;
+	text-align: center;
+	width: 100%;
+	padding: 20px 10px;
+	background: rgba($color: #000, $alpha: 0.8);
+	.cookies-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		.cookies-btn {
+			i {
+				color: #fff;
+				padding-left: 20px;
+				&:hover {
+					color: $aHover;
+				}
+			}
+		}
 	}
 }

@@ -13,7 +13,7 @@ body {
 a {
   text-decoration: none;
   color: #525252;
-  transition: .3s linear; }
+  transition: 0.3s linear; }
   a:hover {
     color: #000; }
 
@@ -64,9 +64,11 @@ p {
   z-index: 2;
   border-bottom: 4px solid #fff;
   transform: scale(0);
-  transition: .3s linear; }
+  opacity: 0;
+  transition: 0.2s linear; }
   .search.active {
-    transform: scale(1); }
+    transform: scale(1);
+    opacity: 1; }
   .search .s-bar {
     margin: 0 auto;
     width: 50%;
@@ -177,6 +179,10 @@ nav {
         align-items: center;
         padding: 5px 0;
         cursor: pointer; }
+        @media (min-width: 1100px) {
+          .nav-burger > ul li h2 {
+            font-size: 1.125em;
+            text-transform: uppercase; } }
         .nav-burger > ul li h2 i {
           pointer-events: none;
           font-size: 1em;
@@ -213,8 +219,14 @@ nav {
       display: block;
       padding: 30px;
       cursor: auto; }
+      @media (min-width: 1100px) {
+        .nav-burger .nav-contact h2 {
+          font-size: 1.125em;
+          text-transform: uppercase;
+          font-weight: 600; } }
     .nav-burger .nav-contact h3 {
-      padding-top: 20px; }
+      padding-top: 20px;
+      font-weight: 600; }
       .nav-burger .nav-contact h3 i {
         padding-right: 10px; }
 
@@ -435,3 +447,26 @@ footer {
   @media (min-width: 1100px) {
     .copy {
       padding: 5px 0; } }
+
+.cookies {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  font-size: 0.75em;
+  font-weight: 400;
+  display: none;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 20px 10px;
+  background: rgba(0, 0, 0, 0.8); }
+  .cookies .cookies-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    .cookies .cookies-container .cookies-btn i {
+      color: #fff;
+      padding-left: 20px; }
+      .cookies .cookies-container .cookies-btn i:hover {
+        color: #000; }
