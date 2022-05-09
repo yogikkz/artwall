@@ -135,12 +135,6 @@ nav {
           pointer-events: none;
           font-size: 1em;
           padding-right: 0.625em; }
-      .nav-burger > ul li.active h2 i {
-        transform: rotate(180deg);
-        padding-right: 0;
-        padding-left: 0.625em; }
-      .nav-burger > ul li.active ul {
-        height: 100%; }
       .nav-burger > ul li.nav-contact {
         text-align: center;
         border-top: 1px solid #efefef;
@@ -154,11 +148,10 @@ nav {
           .nav-burger > ul li.nav-contact h3 i {
             padding-right: 10px; }
       .nav-burger > ul li ul {
-        padding-left: 33px;
-        height: 50px;
-        transition: 0.3 ease-in-out; }
+        max-height: 0;
+        transition: max-height 1s cubic-bezier(0.4, 0.19, 0.07, 1); }
         .nav-burger > ul li ul li {
-          padding: 5px 0; }
+          padding: 5px 33px; }
           .nav-burger > ul li ul li:first-child {
             padding-top: 10px; }
           .nav-burger > ul li ul li:last-child {
@@ -168,6 +161,14 @@ nav {
             color: #525252; }
             .nav-burger > ul li ul li a:hover {
               color: #000; }
+      .nav-burger > ul li.active h2 i {
+        transform: rotate(180deg);
+        padding-right: 0;
+        padding-left: 0.625em; }
+      .nav-burger > ul li.active ul {
+        overflow: hidden;
+        height: auto;
+        max-height: 600px; }
 
 .slider {
   position: fixed;

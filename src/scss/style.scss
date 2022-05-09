@@ -159,18 +159,6 @@ nav {
 					padding-right: 0.625em;
 				}
 			}
-			&.active {
-				h2 {
-					i {
-						transform: rotate(180deg);
-						padding-right: 0;
-						padding-left: 0.625em;
-					}
-				}
-				ul {
-					height: 100%;
-				}
-			}
 			&.nav-contact {
 				text-align: center;
 				border-top: 1px solid $grey;
@@ -188,9 +176,8 @@ nav {
 				}
 			}
 			ul {
-				padding-left: 33px;
-				height: 0;
-				transition: 0.3 ease-in-out;
+				max-height: 0;
+				transition: max-height 1s cubic-bezier(0.4, 0.19, 0.07, 1);
 				li {
 					&:first-child {
 						padding-top: 10px;
@@ -198,7 +185,7 @@ nav {
 					&:last-child {
 						padding-bottom: 15px;
 					}
-					padding: 5px 0;
+					padding: 5px 33px;
 					a {
 						text-decoration: none;
 						color: $primary;
@@ -206,6 +193,21 @@ nav {
 							color: $aHover;
 						}
 					}
+				}
+			}
+			&.active {
+				h2 {
+					i {
+						transform: rotate(180deg);
+						padding-right: 0;
+						padding-left: 0.625em;
+					}
+				}
+				ul {
+					overflow: hidden;
+					// transition: max-height 1s cubic-bezier(0.07, 0.19, 0.4, 1);
+					height: auto;
+					max-height: 600px;
 				}
 			}
 		}
