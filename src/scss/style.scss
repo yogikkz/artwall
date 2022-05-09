@@ -41,6 +41,9 @@ p {
 	margin: 0 auto;
 	padding-left: 0.625em;
 	padding-right: 0.625em;
+	@include media(desktop) {
+		max-width: 1400px;
+	}
 }
 
 .top {
@@ -294,7 +297,7 @@ nav {
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
-			height: 100%;
+			width: 100%;
 		}
 		h1 {
 			position: absolute;
