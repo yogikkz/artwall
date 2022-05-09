@@ -16,12 +16,13 @@ burger.addEventListener('click', () => {
 	burgerIcon.forEach(element => element.classList.toggle('active'))
 })
 
-//SEARCH
+// search
 const enterKeyCheck = e => {
-	if (e.key === 'Enter') {
+	if (e.key === 'Enter' || e.key === 'Escape') {
 		searchBar.classList.toggle('active')
 	}
 }
+
 for (i = 0; i < searchBtn.length; i++) {
 	searchBtn[i].addEventListener('click', function () {
 		searchBar.classList.toggle('active')
