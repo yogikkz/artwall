@@ -95,12 +95,11 @@ nav {
       transform: translate(0);
       background-color: transparent;
       color: #525252;
-      width: auto;
-      height: auto; }
+      width: auto; }
       .burger:hover {
         color: #000; } }
 
-.nav__burger {
+.nav-burger {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -111,53 +110,64 @@ nav {
   background-color: #fff;
   z-index: 1; }
   @media (min-width: 1100px) {
-    .nav__burger {
+    .nav-burger {
       width: 350px;
       transform: translateY(0) translateX(-100%) translateZ(0); } }
-  .nav__burger.open {
+  .nav-burger.open {
     transform: translateY(0%) translateZ(0);
     transition: all 1s 0.3s cubic-bezier(0.4, 0.19, 0.07, 1); }
     @media (min-width: 1100px) {
-      .nav__burger.open {
+      .nav-burger.open {
         transform: translateY(0) translateX(0) translateZ(0); } }
-  .nav__burger > ul {
+  .nav-burger > ul {
     padding: 15px; }
-    .nav__burger > ul li {
+    .nav-burger > ul li {
       list-style: none;
       overflow: hidden; }
-      .nav__burger > ul li h2 {
+      .nav-burger > ul li h2 {
         display: flex;
         font-size: 1.5em;
         font-weight: 600;
         align-items: center;
+        padding: 5px 0;
         cursor: pointer; }
-        .nav__burger > ul li h2 i {
+        .nav-burger > ul li h2 i {
+          pointer-events: none;
           font-size: 1em;
           padding-right: 0.625em; }
-      .nav__burger > ul li.nav-contact {
+      .nav-burger > ul li.active h2 i {
+        transform: rotate(180deg);
+        padding-right: 0;
+        padding-left: 0.625em; }
+      .nav-burger > ul li.active ul {
+        height: 100%; }
+      .nav-burger > ul li.nav-contact {
         text-align: center;
         border-top: 1px solid #efefef;
         margin-top: 40px; }
-        .nav__burger > ul li.nav-contact h2 {
+        .nav-burger > ul li.nav-contact h2 {
           display: block;
           padding: 30px;
           cursor: auto; }
-        .nav__burger > ul li.nav-contact h3 {
+        .nav-burger > ul li.nav-contact h3 {
           padding-top: 20px; }
-          .nav__burger > ul li.nav-contact h3 i {
+          .nav-burger > ul li.nav-contact h3 i {
             padding-right: 10px; }
-      .nav__burger > ul li ul {
+      .nav-burger > ul li ul {
         padding-left: 33px;
-        height: 0; }
-        .nav__burger > ul li ul li {
+        height: 50px;
+        transition: 0.3 ease-in-out; }
+        .nav-burger > ul li ul li {
           padding: 5px 0; }
-          .nav__burger > ul li ul li:first-child {
+          .nav-burger > ul li ul li:first-child {
             padding-top: 10px; }
-          .nav__burger > ul li ul li:last-child {
+          .nav-burger > ul li ul li:last-child {
             padding-bottom: 15px; }
-          .nav__burger > ul li ul li a {
+          .nav-burger > ul li ul li a {
             text-decoration: none;
             color: #525252; }
+            .nav-burger > ul li ul li a:hover {
+              color: #000; }
 
 .slider {
   position: fixed;

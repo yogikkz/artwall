@@ -114,14 +114,13 @@ nav {
 		background-color: transparent;
 		color: $primary;
 		width: auto;
-		height: auto;
 		&:hover {
 			color: $aHover;
 		}
 	}
 }
 
-.nav__burger {
+.nav-burger {
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -152,10 +151,24 @@ nav {
 				font-size: 1.5em;
 				font-weight: 600;
 				align-items: center;
+				padding: 5px 0;
 				cursor: pointer;
 				i {
+					pointer-events: none;
 					font-size: 1em;
 					padding-right: 0.625em;
+				}
+			}
+			&.active {
+				h2 {
+					i {
+						transform: rotate(180deg);
+						padding-right: 0;
+						padding-left: 0.625em;
+					}
+				}
+				ul {
+					height: 100%;
 				}
 			}
 			&.nav-contact {
@@ -177,6 +190,7 @@ nav {
 			ul {
 				padding-left: 33px;
 				height: 0;
+				transition: 0.3 ease-in-out;
 				li {
 					&:first-child {
 						padding-top: 10px;
@@ -188,6 +202,9 @@ nav {
 					a {
 						text-decoration: none;
 						color: $primary;
+						&:hover {
+							color: $aHover;
+						}
 					}
 				}
 			}
