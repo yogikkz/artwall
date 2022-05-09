@@ -1,1 +1,1 @@
-# Projekt sklepu z fotptapetami.
+# Projekt sklepu z fototapetami.
