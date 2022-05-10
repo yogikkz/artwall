@@ -14,8 +14,8 @@
 	.container {
 		display: flex;
 		justify-content: space-between;
-        align-items: center;
-        width: 100%;        
+		align-items: center;
+		width: 100%;
 		margin: 20px auto;
 		p {
 			&:first-child {
@@ -24,14 +24,14 @@
 		}
 	}
 	a {
-        display: block;
+		display: block;
 		padding: 10px 30px;
 		color: #fff;
-		background-color: $primary;		
-        text-transform: uppercase;
-        &:hover {
-            color: #fff;
-            background-color: $aHover;
-        }
+		background-color: $primary;
+		text-transform: uppercase;
+		&:hover {
+			color: #fff;
+			background-color: $aHover;
+		}
 	}
 }

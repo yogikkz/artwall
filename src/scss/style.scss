@@ -4,36 +4,27 @@
 	box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,900;1,900&family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
 
 @import 'colors';
 @import 'mixins';
 @import 'single';
+@import 'sizes';
 
 body {
-	font-family: 'Poppins', sans-serif;
-	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
 	color: $primary;
-	line-height: 1.5;
+	display: grid;
+	grid-template-rows: auto 1fr auto auto;
+	min-height: 100vh;
 }
 
 a {
 	text-decoration: none;
 	color: $primary;
-	transition: 0.3s linear;
+	transition: 0.2s linear;
 	&:hover {
 		color: $aHover;
-	}
-}
-
-h2 {
-	font-size: 3em;
-}
-
-p {
-	font-size: 1.25em;
-	@include media(tablet) {
-		font-size: 1em;
 	}
 }
 
@@ -59,9 +50,6 @@ p {
 	border-bottom: 1px solid $grey;
 	z-index: 1;
 	background-color: white;
-	i {
-		font-size: 1.5em;
-	}
 	a {
 		text-decoration: none;
 		img {
@@ -102,8 +90,7 @@ p {
 			border-left: 0;
 			border-right: 0;
 			border-bottom: 1px solid $primary;
-			font-family: 'Poppins', sans-serif;
-			font-size: 1.5rem;
+			font-family: 'Open Sans', sans-serif;
 			padding: 10px;
 			text-align: center;
 			outline: none;
@@ -113,7 +100,6 @@ p {
 			text-align: center;
 			border-radius: 10px;
 			color: $primary;
-			font-size: 2em;
 			margin-left: 5px;
 			padding: 5px 10px;
 			&:hover {
@@ -131,9 +117,8 @@ nav {
 		align-items: center;
 		padding-top: 92px;
 		a {
-			font-size: 1.125em;
 			text-transform: uppercase;
-			font-weight: 300;
+			font-weight: 400;
 		}
 	}
 }
@@ -145,31 +130,34 @@ nav {
 	bottom: 0;
 	transform: translateX(-50%);
 	background-color: $primary;
-	width: 80px;
-	height: 68px;
-	font-size: 2em;
+	padding: 15px 20px;
 	color: white;
 	text-align: center;
 	cursor: pointer;
-	i {
-		padding: 18px;
-		display: none;
-		&.active {
-			display: inherit;
-		}
-		@include media(tablet) {
-			padding: 18;
-		}
-	}
 	@include media(tablet) {
+		// padding: 34px;
+		// height: 68px;
 		top: 0;
 		left: 0;
 		transform: translate(0);
 		background-color: transparent;
 		color: $primary;
 		width: auto;
+		padding: 0;
 		&:hover {
 			color: $aHover;
+		}
+	}
+	i {
+		font-size: 1.5em;
+		display: none;
+		@include media(tablet) {
+			font-size: 2em;
+			line-height: 68px;
+			padding-left: 20px;
+		}
+		&.active {
+			display: inherit;
 		}
 	}
 }
@@ -204,20 +192,14 @@ nav {
 		li {
 			list-style: none;
 			overflow: hidden;
-			h2 {
+			h3 {
 				display: flex;
-				font-size: 1.5em;
 				font-weight: 600;
 				align-items: center;
 				padding: 5px 0;
 				cursor: pointer;
-				@include media(tablet) {
-					font-size: 1.125em;
-					text-transform: uppercase;
-				}
 				i {
 					pointer-events: none;
-					font-size: 1em;
 					padding-right: 0.625em;
 					transition: 0.3s linear;
 				}
@@ -243,7 +225,7 @@ nav {
 				}
 			}
 			&.active {
-				h2 {
+				h3 {
 					i {
 						transform: rotate(180deg);
 						padding-right: 0;
@@ -266,23 +248,22 @@ nav {
 		@include media(tablet) {
 			margin-bottom: 40px;
 		}
-		h2 {
+		h3 {
 			display: block;
 			padding: 15px;
 			cursor: auto;
 			@include media(tablet) {
-				font-size: 1.125em;
 				text-transform: uppercase;
 				font-weight: 600;
 			}
 		}
 		p {
 			padding: 10px 0;
-		}
-		h3 {
-			font-weight: 600;
-			i {
-				padding-right: 10px;
+			&.strong {
+				padding: 0;
+				i {
+					padding-right: 10px;
+				}
 			}
 		}
 	}
@@ -313,10 +294,9 @@ nav {
 			position: absolute;
 			left: 0;
 			bottom: 10%;
-			font-size: 3em;
 			text-transform: uppercase;
 			font-style: italic;
-			font-weight: 900;
+			font-weight: 800;
 			color: white;
 			text-align: center;
 		}
@@ -385,7 +365,7 @@ nav {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		grid-auto-rows: 300px;
-		grid-gap: 15px;
+		grid-gap: 30px 15px;
 		position: relative;
 		@include media(tablet) {
 			grid-template-columns: repeat(3, 1fr);
@@ -419,30 +399,28 @@ nav {
 			}
 		}
 		.text {
-			opacity: 0;
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			color: white;
-			font-size: 2em;
+			bottom: 0;
+			left: 0;
+			background-color: #fff;
+			color: $primary;
+			padding: 10px;
 			pointer-events: none;
-			width: 100%;
-			text-align: center;
+			width:100%;
 			z-index: 2;
-			transition: 0.3s ease-in-out;
-			backdrop-filter: blur(5px) saturate(1.8);
+			display: flex;
+			justify-content: space-between;							
+			p {
+				&:first-child {
+					text-transform: uppercase;
+				}
+			}
 		}
 		&:hover {
 			.image {
 				img {
 					transform: scale(1.5);
 				}
-			}
-			.text {
-				opacity: 1;
-				padding: 1em;
-				animation: move-down 0.3s linear;
 			}
 		}
 	}
@@ -501,7 +479,6 @@ nav {
 				font-size: 4em;
 			}
 			h2 {
-				font-size: 1.5em;
 				padding-top: 20px;
 			}
 		}
@@ -527,7 +504,7 @@ footer {
 	}
 	.address {
 		img {
-			width: 75%;			
+			width: 75%;
 		}
 		ul {
 			padding-top: 10px;
@@ -544,7 +521,6 @@ footer {
 			padding-bottom: 10px;
 		}
 		i {
-			font-size: 1.5em;
 			padding-right: 5px;
 		}
 	}
@@ -570,7 +546,7 @@ footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	font-size: 0.75em;
+	font-size: $small;
 	font-weight: 400;
 	display: none;
 	color: white;
