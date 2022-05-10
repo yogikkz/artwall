@@ -1,0 +1,37 @@
+.s-header {
+	background-color: $grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 20px 0;
+	margin-bottom: 40px;
+	margin-top: 72px;
+	h1 {
+		font-size: 1.5em;
+		font-weight: 600;
+	}
+	.container {
+		display: flex;
+		justify-content: space-between;
+        align-items: center;
+        width: 100%;        
+		margin: 20px auto;
+		p {
+			&:first-child {
+				text-transform: uppercase;
+			}
+		}
+	}
+	a {
+        display: block;
+		padding: 10px 30px;
+		color: #fff;
+		background-color: $primary;		
+        text-transform: uppercase;
+        &:hover {
+            color: #fff;
+            background-color: $aHover;
+        }
+	}
+}
