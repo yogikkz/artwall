@@ -24,8 +24,20 @@ a {
 	color: $primary;
 	transition: 0.2s linear;
 	&:hover {
-		color: $aHover;		
+		color: $aHover;
 	}
+}
+
+input {
+	background: transparent;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid $primary;
+	font-family: 'Open Sans', sans-serif;
+	padding: 10px;
+	text-align: center;
+	outline: none;
 }
 
 .container {
@@ -85,15 +97,6 @@ a {
 		align-items: center;
 		.s-input {
 			flex-basis: 100%;
-			background: transparent;
-			border-top: 0;
-			border-left: 0;
-			border-right: 0;
-			border-bottom: 1px solid $primary;
-			font-family: 'Open Sans', sans-serif;
-			padding: 10px;
-			text-align: center;
-			outline: none;
 		}
 		a {
 			display: block;
@@ -406,10 +409,10 @@ nav {
 			color: $primary;
 			padding: 10px;
 			pointer-events: none;
-			width:100%;
+			width: 100%;
 			z-index: 2;
 			display: flex;
-			justify-content: space-between;							
+			justify-content: space-between;
 			p {
 				&:first-child {
 					text-transform: uppercase;
