@@ -5,7 +5,7 @@ const navBurgerLink = navBurger.getElementsByClassName('burger-link')
 const searchBtn = document.getElementsByClassName('search-btn')
 const searchBar = document.querySelector('.search')
 
-for (i = 0; i < navBurgerLink.length; i++) {
+for (let i = 0; i < navBurgerLink.length; i++) {
 	navBurgerLink[i].addEventListener('click', function () {
 		this.classList.toggle('active')
 	})
@@ -23,7 +23,7 @@ const enterKeyCheck = e => {
 	}
 }
 
-for (i = 0; i < searchBtn.length; i++) {
+for (let i = 0; i < searchBtn.length; i++) {
 	searchBtn[i].addEventListener('click', function () {
 		searchBar.classList.toggle('active')
 		searchBar.addEventListener('keyup', enterKeyCheck)
